@@ -21,9 +21,27 @@
     document.body.classList.remove("modal-open");
   }
 
+  function trackPixel(event, params) {
+    if (typeof window.fbq === "function") {
+      if (params) {
+        window.fbq("track", event, params);
+      } else {
+        window.fbq("track", event);
+      }
+    }
+  }
+
   document.querySelectorAll('a[href="#AbrirPremium"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
+      trackPixel("AddToCart", {
+        content_name: "Plan Básico - Matemáticas 4 Operaciones",
+        content_category: "Educación Primaria",
+        content_ids: ["U107529558M"],
+        content_type: "product",
+        value: 5.00,
+        currency: "USD"
+      });
       openModal();
     });
   });
@@ -68,17 +86,60 @@
     secondsEl.textContent = String(secs).padStart(2, "0");
   }
 
-  let left = remaining();
-  renderCountdown(left);
-  const timer = setInterval(() => {
-    left -= 1;
-    if (left <= 0) {
-      left = 0;
-      clearInterval(timer);
-      document.querySelector(".countdown")?.setAttribute("hidden", "");
-    }
+  if (minutesEl || secondsEl) {
+    let left = remaining();
     renderCountdown(left);
-  }, 1000);
+    const timer = setInterval(() => {
+      left -= 1;
+      if (left <= 0) {
+        left = 0;
+        clearInterval(timer);
+        document.querySelector(".countdown")?.setAttribute("hidden", "");
+      }
+      renderCountdown(left);
+    }, 1000);
+  }
+
+  document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      const href = link.getAttribute("href") || "";
+      if (href.includes("U107521772O")) {
+        trackPixel("InitiateCheckout", {
+          content_name: "Plan Premium - Matemáticas 4 Operaciones",
+          content_category: "Educación Primaria",
+          content_ids: ["U107521772O"],
+          content_type: "product",
+          value: 9.99,
+          currency: "USD",
+          num_items: 1
+        });
+      } else if (href.includes("U107529558M")) {
+        trackPixel("InitiateCheckout", {
+          content_name: "Plan Básico - Matemáticas 4 Operaciones",
+          content_category: "Educación Primaria",
+          content_ids: ["U107529558M"],
+          content_type: "product",
+          value: 5.00,
+          currency: "USD",
+          num_items: 1
+        });
+      } else {
+        trackPixel("InitiateCheckout", {
+          content_name: "Matemáticas 4 Operaciones",
+          content_category: "Educación Primaria",
+          content_type: "product",
+          value: 5.00,
+          currency: "USD"
+        });
+      }
+    });
+  });
+
+  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      trackPixel("Contact");
+    });
+  });
 
   document.querySelectorAll(".faq-item").forEach((item) => {
     const button = item.querySelector("button");
