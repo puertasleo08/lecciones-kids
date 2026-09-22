@@ -59,14 +59,6 @@
     openModal();
   }
 
-  let exitShown = sessionStorage.getItem("lk-exit-shown") === "1";
-  document.documentElement.addEventListener("mouseleave", (event) => {
-    if (exitShown || event.clientY > 0) return;
-    exitShown = true;
-    sessionStorage.setItem("lk-exit-shown", "1");
-    openModal();
-  });
-
   function remaining() {
     const saved = Number(sessionStorage.getItem(STORAGE_KEY) || 0);
     const now = Date.now();
