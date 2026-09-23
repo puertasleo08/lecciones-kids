@@ -37,6 +37,130 @@
   src="https://www.facebook.com/tr?id=4366968890283008&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+
+  <!-- Lowtrack Pixel Code -->
+  <script>
+    window.pixelId = "lt_px_723c829b8173";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://lowtrack.com.br/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <!-- End Lowtrack Pixel Code -->
+
+  <!-- Hotmart UTM Forwarding -->
+  <script>
+    (function () {
+      function getUtmParams() {
+        var params = new URLSearchParams(window.location.search);
+        return {
+          campaign: params.get("utm_campaign"),
+          content: params.get("utm_content"),
+          term: params.get("utm_term")
+        };
+      }
+
+      function injectHotmartParams(urlStr) {
+        if (!urlStr || typeof urlStr !== "string") return urlStr;
+        if (urlStr.indexOf("pay.hotmart.com") === -1) return urlStr;
+
+        try {
+          var utm = getUtmParams();
+          if (!utm.campaign && !utm.content && !utm.term) return urlStr;
+
+          var url = new URL(urlStr, window.location.href);
+          if (!url.hostname.includes("pay.hotmart.com")) return urlStr;
+
+          if (utm.campaign && !url.searchParams.has("src")) {
+            url.searchParams.set("src", utm.campaign);
+          }
+          if (utm.content && !url.searchParams.has("sck")) {
+            url.searchParams.set("sck", utm.content);
+          }
+          if (utm.term && !url.searchParams.has("xcod")) {
+            url.searchParams.set("xcod", utm.term);
+          }
+
+          return url.toString();
+        } catch (e) {
+          return urlStr;
+        }
+      }
+
+      function updateHotmartElements(context) {
+        var root = context || document;
+        if (!root.querySelectorAll) return;
+        var links = root.querySelectorAll('a[href*="pay.hotmart.com"]');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute("href");
+          if (href) {
+            var updated = injectHotmartParams(href);
+            if (updated !== href) {
+              links[i].setAttribute("href", updated);
+            }
+          }
+        }
+      }
+
+      // Initial execution and DOM lifecycle
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+          updateHotmartElements(document);
+        });
+      } else {
+        updateHotmartElements(document);
+      }
+
+      // MutationObserver for dynamically added links
+      if (typeof MutationObserver !== "undefined") {
+        var observer = new MutationObserver(function (mutations) {
+          for (var i = 0; i < mutations.length; i++) {
+            var mutation = mutations[i];
+            for (var j = 0; j < mutation.addedNodes.length; j++) {
+              var node = mutation.addedNodes[j];
+              if (node.nodeType === 1) {
+                if (node.matches && node.matches('a[href*="pay.hotmart.com"]')) {
+                  var href = node.getAttribute("href");
+                  if (href) node.setAttribute("href", injectHotmartParams(href));
+                }
+                updateHotmartElements(node);
+              }
+            }
+          }
+        });
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true
+        });
+      }
+
+      // Global click interceptor (capture phase)
+      document.addEventListener("click", function (event) {
+        var target = event.target;
+        var link = target && target.closest ? target.closest('a[href*="pay.hotmart.com"]') : null;
+        if (link) {
+          var href = link.getAttribute("href");
+          if (href) {
+            link.setAttribute("href", injectHotmartParams(href));
+          }
+        }
+      }, true);
+
+      // Intercept window.open
+      var originalOpen = window.open;
+      window.open = function (url, target, features) {
+        if (url) {
+          var urlString = typeof url === "string" ? url : (url.href || url.toString());
+          if (typeof urlString === "string" && urlString.indexOf("pay.hotmart.com") !== -1) {
+            url = injectHotmartParams(urlString);
+          }
+        }
+        return originalOpen.call(window, url, target, features);
+      };
+    })();
+  </script>
+  <!-- End Hotmart UTM Forwarding -->
 </head>
 <body>
   <div id="sticky-timer-bar">
