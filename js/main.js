@@ -55,9 +55,8 @@
     if (event.key === "Escape") closeModal();
   });
 
-  if (window.location.hash === "#AbrirPremium") {
-    openModal();
-  }
+  // O modal Premium só abre no clique do Plan Básico (#AbrirPremium).
+  // Sem auto-open por hash, timer ou exit-intent.
 
   function remaining() {
     const saved = Number(sessionStorage.getItem(STORAGE_KEY) || 0);
