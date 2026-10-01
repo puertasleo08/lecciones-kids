@@ -229,7 +229,7 @@
     .fact-icon { font-size: 1.6rem; line-height: 1; display: block; margin-bottom: 6px; }
     .fact strong { display: block; color: #3b2a1a; font-size: 1.05rem; }
     .fact span { color: #5c5148; font-size: 0.88rem; }
-    @media (max-width: 560px) {
+    @media (max-width: 640px) {
       .facts { grid-template-columns: 1fr; }
     }
 
@@ -420,6 +420,89 @@
         overflow: hidden;
       }
     }
+    .step-card {
+      background: #fff;
+      border: 1px solid #ead9c4;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 0 0 18px;
+      box-shadow: 0 4px 14px rgba(59, 42, 26, 0.06);
+    }
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .article-wrap .step-card h3 { margin: 0; }
+    .step-card > :last-child { margin-bottom: 0; }
+    .step-number {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fdce00;
+      color: #3b2a1a;
+      font-weight: 900;
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .tip-box {
+      background: #f0fdf4;
+      border-left: 4px solid #2caa33;
+      border-radius: 0 12px 12px 0;
+      padding: 16px;
+      margin: 0 0 24px;
+    }
+    .tip-box .tip-title { color: #3b2a1a; font-weight: 800; margin: 0 0 10px; }
+    .tip-box ul { margin-bottom: 0; }
+    .article-wrap .example { margin-bottom: 24px; }
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 8px 0 24px;
+    }
+    .article-wrap .table-scroll table { margin: 0; }
+    @media (max-width: 640px) {
+      .step-card { padding: 16px; }
+      .article-wrap .table-scroll table { font-size: 0.9rem; }
+      .article-wrap th,
+      .article-wrap td { padding: 8px 10px; overflow-wrap: anywhere; }
+    }
+    .video-vertical {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 9 / 16;
+      height: auto;
+      display: block;
+      margin: 20px auto 16px;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(59, 42, 26, 0.16);
+      background: #000;
+    }
+    .offer-box .offer-price {
+      text-align: center;
+      font-size: 1.15rem;
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .offer-price .price { color: #2caa33; font-size: 1.35rem; }
+    .step-list { list-style: none; padding-left: 0; }
+    .article-wrap .step-list li.step-inline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      margin: 0 0 10px;
+    }
+    @media (max-width: 640px) {
+      .bump-item { flex: 1 1 100%; max-width: 220px; }
+    }
   </style>
 </head>
 <body class="legal-page">
@@ -434,14 +517,8 @@
     <h1>Resolución de problemas matemáticos: guía paso a paso para primaria</h1>
     <p class="description-meta">Cómo ayudar a tu hijo o alumno a entender el enunciado, encontrar los datos importantes y elegir la operación correcta, sin bloquearse ni adivinar.</p>
 
-    <img
-      src="imagens-pg-vendas/Loja_LK_Post_-_Matematica_4_Operacoes-1-1024x1024.png_202609081654.png"
-      width="800"
-      height="800"
-      alt="Cuadernillo con problemas de matemáticas para niños de primaria y ejercicios de las 4 operaciones"
-      fetchpriority="high"
-      decoding="async"
-    >
+    <video class="video-vertical" controls preload="metadata" playsinline><source src="VIDEO/capa.mp4" type="video/mp4">Tu navegador no soporta el video.</video>
+    <div style="text-align: center; margin-bottom: 32px;"><a class="btn" href="/" style="display: inline-block; background: #2caa33; color: #fff; text-decoration: none; font-weight: 800; padding: 14px 28px; border-radius: 999px; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(44, 170, 51, 0.3);">Quiero el cuadernillo ahora</a></div>
 
     <p>La <strong>resolución de problemas matemáticos</strong> es uno de los momentos que más frustra a los niños, y también a quienes los acompañamos. Muchas veces el niño ya sabe sumar, restar y multiplicar, pero frente a un enunciado se queda en blanco: no sabe por dónde empezar ni qué operación usar.</p>
     <p>La buena noticia es que el problema casi nunca es el cálculo. Es la forma de leer y organizar la información. Con un método simple y un poco de práctica diaria, los problemas matemáticos dejan de ser un muro y se convierten en un reto alcanzable.</p>
@@ -486,45 +563,67 @@
     <h2>Método de 4 pasos para la solución de problemas matemáticos</h2>
     <p>El matemático George Pólya propuso un método que hoy se usa en escuelas de todo el mundo. Lo adaptamos en 4 pasos fáciles de aplicar en casa o en el aula.</p>
 
-    <h3>Paso 1: Leer con atención y comprender</h3>
-    <p>Pide al niño que lea el enunciado completo, sin lápiz en la mano. La primera lectura es para entender la historia: quién aparece, qué pasa y qué se quiere saber.</p>
-    <p>Después, hazle una pregunta simple: <em>“¿Qué nos están preguntando?”</em>. Si no puede responder con sus palabras, conviene leer otra vez antes de seguir.</p>
+    <div class="step-card">
+      <div class="step-head">
+        <span class="step-number" aria-hidden="true">1</span>
+        <h3>Paso 1: Leer con atención y comprender</h3>
+      </div>
+      <p>Pide al niño que lea el enunciado completo, sin lápiz en la mano. La primera lectura es para entender la historia: quién aparece, qué pasa y qué se quiere saber.</p>
+      <p>Después, hazle una pregunta simple: <em>“¿Qué nos están preguntando?”</em>. Si no puede responder con sus palabras, conviene leer otra vez antes de seguir.</p>
+    </div>
 
-    <h3>Paso 2: Subrayar los datos y la pregunta</h3>
-    <p>En la segunda lectura, el niño marca la información importante:</p>
-    <ul>
-      <li>Los <strong>números</strong> y lo que representan (manzanas, pesos, niños, días).</li>
-      <li>La <strong>pregunta final</strong>, con otro color.</li>
-      <li>Los datos que <strong>sobran</strong>, si los hay, tachados con una línea suave.</li>
-    </ul>
-    <p>Organizar la información con un dibujo, una tabla o un esquema también ayuda mucho, sobre todo en los primeros grados.</p>
+    <div class="step-card">
+      <div class="step-head">
+        <span class="step-number" aria-hidden="true">2</span>
+        <h3>Paso 2: Subrayar los datos y la pregunta</h3>
+      </div>
+      <p>En la segunda lectura, el niño marca la información importante:</p>
+      <ul>
+        <li>Los <strong>números</strong> y lo que representan (manzanas, pesos, niños, días).</li>
+        <li>La <strong>pregunta final</strong>, con otro color.</li>
+        <li>Los datos que <strong>sobran</strong>, si los hay, tachados con una línea suave.</li>
+      </ul>
+      <p>Organizar la información con un dibujo, una tabla o un esquema también ayuda mucho, sobre todo en los primeros grados.</p>
+    </div>
 
-    <h3>Paso 3: Elegir la operación</h3>
-    <p>Aquí está el corazón de la resolución de problemas matemáticos. Para decidir qué cuenta hacer, el niño puede apoyarse en algunas palabras clave del enunciado:</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Si el enunciado dice…</th>
-          <th>Probablemente sea…</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>en total, juntos, más, añade, ganó</td><td>Suma</td></tr>
-        <tr><td>quedan, perdió, gastó, diferencia, cuántos más</td><td>Resta</td></tr>
-        <tr><td>cada uno tiene, veces, grupos de, por cada</td><td>Multiplicación</td></tr>
-        <tr><td>repartir, partes iguales, cuántos le tocan</td><td>División</td></tr>
-      </tbody>
-    </table>
-    <p>Ojo: las palabras clave orientan, pero no reemplazan la comprensión. Siempre conviene preguntar: <em>“¿La respuesta tiene que ser más grande o más chica que los números del problema?”</em>.</p>
+    <div class="step-card">
+      <div class="step-head">
+        <span class="step-number" aria-hidden="true">3</span>
+        <h3>Paso 3: Elegir la operación</h3>
+      </div>
+      <p>Aquí está el corazón de la resolución de problemas matemáticos. Para decidir qué cuenta hacer, el niño puede apoyarse en algunas palabras clave del enunciado:</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Si el enunciado dice…</th>
+              <th>Probablemente sea…</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>en total, juntos, más, añade, ganó</td><td>Suma</td></tr>
+            <tr><td>quedan, perdió, gastó, diferencia, cuántos más</td><td>Resta</td></tr>
+            <tr><td>cada uno tiene, veces, grupos de, por cada</td><td>Multiplicación</td></tr>
+            <tr><td>repartir, partes iguales, cuántos le tocan</td><td>División</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Ojo: las palabras clave orientan, pero no reemplazan la comprensión. Siempre conviene preguntar: <em>“¿La respuesta tiene que ser más grande o más chica que los números del problema?”</em>.</p>
+    </div>
 
-    <h3>Paso 4: Resolver y revisar</h3>
-    <p>Con el plan claro, el niño hace los cálculos con orden. Luego viene el paso que más se olvida: revisar.</p>
-    <ul>
-      <li>¿La respuesta tiene sentido con la pregunta?</li>
-      <li>¿Escribió la unidad? (no es “12”, son “12 caramelos”)</li>
-      <li>¿Puede comprobarlo con la operación inversa?</li>
-    </ul>
-    <p>Y al final, algo que también enseña: felicitarlo por el esfuerzo, no solo por el resultado. &#x1F389;</p>
+    <div class="step-card">
+      <div class="step-head">
+        <span class="step-number" aria-hidden="true">4</span>
+        <h3>Paso 4: Resolver y revisar</h3>
+      </div>
+      <p>Con el plan claro, el niño hace los cálculos con orden. Luego viene el paso que más se olvida: revisar.</p>
+      <ul>
+        <li>¿La respuesta tiene sentido con la pregunta?</li>
+        <li>¿Escribió la unidad? (no es “12”, son “12 caramelos”)</li>
+        <li>¿Puede comprobarlo con la operación inversa?</li>
+      </ul>
+      <p>Y al final, algo que también enseña: felicitarlo por el esfuerzo, no solo por el resultado. &#x1F389;</p>
+    </div>
 
     <h2>Estrategias extra para problemas de matemáticas para niños</h2>
     <p>Cuando el método de 4 pasos no alcanza, estas estrategias desbloquean al niño:</p>
@@ -559,12 +658,15 @@
     </div>
 
     <h2>Errores comunes al acompañar a los niños</h2>
-    <ul>
-      <li><strong>Darle la operación:</strong> mejor preguntar “¿qué crees que hay que hacer?”.</li>
-      <li><strong>Saltarse la lectura:</strong> muchos errores vienen de leer rápido, no de calcular mal.</li>
-      <li><strong>Hojas larguísimas:</strong> 2 o 3 problemas bien entendidos valen más que 20 hechos a la carrera.</li>
-      <li><strong>Corregir sin explicar:</strong> revisar juntos el error convierte la equivocación en aprendizaje.</li>
-    </ul>
+    <div class="tip-box">
+      <p class="tip-title">&#x1F4A1; Ojo con estos errores comunes:</p>
+      <ul>
+        <li><strong>Darle la operación:</strong> mejor preguntar “¿qué crees que hay que hacer?”.</li>
+        <li><strong>Saltarse la lectura:</strong> muchos errores vienen de leer rápido, no de calcular mal.</li>
+        <li><strong>Hojas larguísimas:</strong> 2 o 3 problemas bien entendidos valen más que 20 hechos a la carrera.</li>
+        <li><strong>Corregir sin explicar:</strong> revisar juntos el error convierte la equivocación en aprendizaje.</li>
+      </ul>
+    </div>
 
     <div class="article-cta offer-box">
       <h2>Practica con problemas listos para imprimir</h2>
@@ -579,9 +681,10 @@
       >
       <p>Saber el método es el primer paso. Lo que realmente cambia el resultado es la <strong>práctica constante con problemas bien graduados</strong>. El <strong>Cuadernillo Matemáticas 4 Operaciones</strong> reúne más de 290 páginas de ejercicios y problemas de suma, resta, multiplicación y división, organizados del 1.º al 5.º grado.</p>
       <p>Sin buscar fichas cada noche ni improvisar: imprimes y aplicas en casa o en el aula desde hoy.</p>
+      <p class="offer-price">Llévate el <strong>Cuadernillo Matemáticas 4 Operaciones</strong> por solo <strong class="price">$9,99</strong> (pago único).</p>
 
       <div class="bump-note">
-        <p><strong>&#x1F381; Oportunidad exclusiva en el checkout:</strong> al hacer clic para comprar el cuadernillo, podrás sumar a tu pedido dos materiales complementarios por solo <strong>$3,99 cada uno</strong>. Están pensados justamente para reforzar el cálculo y la resolución de problemas, y esta oferta solo aparece en ese momento.</p>
+        <p><strong>&#x1F381; Oportunidad exclusiva en el checkout:</strong> al hacer clic para comprar el cuadernillo, podrás sumar a tu pedido dos materiales complementarios. Su precio normal es de $9,99, pero en ese momento te llevas cada uno por solo <strong>$3,99</strong>. Están pensados para reforzar el cálculo y la resolución de problemas, y esta oferta solo aparece en el checkout.</p>
         <div class="bump-grid">
           <div class="bump-item">
             <img
@@ -592,7 +695,7 @@
               loading="lazy"
               decoding="async"
             >
-            <p>Secretos del Cálculo Mental Rápido<br><span class="bump-price">+ $3,99</span></p>
+            <p>Secretos del Cálculo Mental Rápido<br><span class="bump-price"><del style="color:#8c7e72; font-size:0.85em; text-decoration:line-through;">$9,99</del> <strong style="color:#2caa33;">$3,99</strong></span></p>
           </div>
           <div class="bump-item">
             <img
@@ -603,7 +706,7 @@
               loading="lazy"
               decoding="async"
             >
-            <p>Desafíos de Cálculo y Problemas Matemáticos Kids<br><span class="bump-price">+ $3,99</span></p>
+            <p>Desafíos de Cálculo y Problemas Matemáticos Kids<br><span class="bump-price"><del style="color:#8c7e72; font-size:0.85em; text-decoration:line-through;">$9,99</del> <strong style="color:#2caa33;">$3,99</strong></span></p>
           </div>
         </div>
       </div>

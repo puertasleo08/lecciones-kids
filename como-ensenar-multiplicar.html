@@ -205,6 +205,184 @@
       .site-header-article { padding: 12px 16px; }
     }
 
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 0 0 28px;
+    }
+    .fact {
+      background: #fff;
+      border: 1px solid #ead9c4;
+      border-radius: 14px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .fact-icon { font-size: 1.6rem; line-height: 1; display: block; margin-bottom: 6px; }
+    .fact strong { display: block; color: #3b2a1a; font-size: 1.05rem; }
+    .fact span { color: #5c5148; font-size: 0.88rem; }
+    @media (max-width: 640px) {
+      .facts { grid-template-columns: 1fr; }
+    }
+
+    .article-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 24px;
+      font-size: 0.95rem;
+    }
+    .article-wrap th,
+    .article-wrap td {
+      border: 1px solid #ead9c4;
+      padding: 10px 12px;
+      text-align: left;
+      color: #5c5148;
+    }
+    .article-wrap th { background: #fff1d6; color: #3b2a1a; font-weight: 800; }
+
+    .example {
+      background: #fffaf1;
+      border-left: 4px solid #fdce00;
+      border-radius: 0 12px 12px 0;
+      padding: 12px 16px;
+      margin: 0 0 18px;
+    }
+    .example p { margin-bottom: 6px; }
+    .example p:last-child { margin-bottom: 0; }
+
+    .article-cta.offer-box {
+      padding: 28px 22px;
+      text-align: left;
+    }
+    .offer-box h2 {
+      border: none;
+      margin: 0 0 12px;
+      padding: 0;
+      text-align: center;
+    }
+    .offer-box .offer-cover {
+      max-width: 260px;
+      margin: 0 auto 18px;
+    }
+    .offer-box .btn-wrap { text-align: center; margin-top: 18px; }
+    .bump-note {
+      background: #fff;
+      border: 2px dashed #b36230;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 18px;
+    }
+    .bump-note p { color: #3b2a1a; }
+    .bump-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .bump-item {
+      flex: 0 1 200px;
+      max-width: 200px;
+      text-align: center;
+    }
+    .article-wrap .bump-item img {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto 8px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(59, 42, 26, 0.14);
+    }
+    .bump-item p {
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin: 0;
+    }
+    .bump-price { color: #2caa33; }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid #ead9c4;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 0 0 18px;
+      box-shadow: 0 4px 14px rgba(59, 42, 26, 0.06);
+    }
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .article-wrap .step-card h3 { margin: 0; }
+    .step-card > :last-child { margin-bottom: 0; }
+    .step-number {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fdce00;
+      color: #3b2a1a;
+      font-weight: 900;
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .tip-box {
+      background: #f0fdf4;
+      border-left: 4px solid #2caa33;
+      border-radius: 0 12px 12px 0;
+      padding: 16px;
+      margin: 0 0 24px;
+    }
+    .tip-box .tip-title { color: #3b2a1a; font-weight: 800; margin: 0 0 10px; }
+    .tip-box ul { margin-bottom: 0; }
+    .article-wrap .example { margin-bottom: 24px; }
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 8px 0 24px;
+    }
+    .article-wrap .table-scroll table { margin: 0; }
+    @media (max-width: 640px) {
+      .step-card { padding: 16px; }
+      .article-wrap .table-scroll table { font-size: 0.9rem; }
+      .article-wrap th,
+      .article-wrap td { padding: 8px 10px; overflow-wrap: anywhere; }
+    }
+    .video-vertical {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 9 / 16;
+      height: auto;
+      display: block;
+      margin: 20px auto 16px;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(59, 42, 26, 0.16);
+      background: #000;
+    }
+    .offer-box .offer-price {
+      text-align: center;
+      font-size: 1.15rem;
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .offer-price .price { color: #2caa33; font-size: 1.35rem; }
+    .step-list { list-style: none; padding-left: 0; }
+    .article-wrap .step-list li.step-inline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      margin: 0 0 10px;
+    }
+    @media (max-width: 640px) {
+      .bump-item { flex: 1 1 100%; max-width: 220px; }
+    }
+
     #hypen-float-cta {
       position: fixed;
       left: 16px;
@@ -318,14 +496,8 @@
     <h1>¿Cómo enseñar a multiplicar a un niño? Guía práctica para casa y el aula</h1>
     <p class="description-meta">Métodos visuales, juegos y actividades lúdicas para que tu hijo o alumno aprenda las tablas de multiplicar con confianza, sin frustración y a su ritmo.</p>
 
-    <img
-      src="imagens-pg-vendas/Loja_LK_Post_-_Matematica_4_Operacoes-1-1024x1024.png_202609081654.png"
-      width="800"
-      height="800"
-      alt="Cuadernillo de matemáticas para enseñar a multiplicar a un niño con actividades lúdicas de primaria"
-      fetchpriority="high"
-      decoding="async"
-    >
+    <video class="video-vertical" controls preload="metadata" playsinline><source src="VIDEO/capa.mp4" type="video/mp4">Tu navegador no soporta el video.</video>
+    <div style="text-align: center; margin-bottom: 32px;"><a class="btn" href="/" style="display: inline-block; background: #2caa33; color: #fff; text-decoration: none; font-weight: 800; padding: 14px 28px; border-radius: 999px; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(44, 170, 51, 0.3);">Quiero el cuadernillo ahora</a></div>
 
     <p>Si te preguntas <strong>cómo enseñar a multiplicar a un niño</strong>, no estás sola. Madres, padres y docentes de primaria enfrentan la misma situación: el niño entiende la suma y la resta, pero la multiplicación parece un muro. La buena noticia es que, con paciencia, recursos visuales y un enfoque lúdico, cada niño puede descubrir esta operación y dominarla con práctica constante.</p>
 
@@ -339,15 +511,32 @@
       </ul>
     </div>
 
+    <div class="facts" aria-label="Datos rápidos">
+      <div class="fact">
+        <span class="fact-icon" aria-hidden="true">&#x23F1;&#xFE0F;</span>
+        <strong>10 min diarios</strong>
+        <span>bastan para avanzar sin presión</span>
+      </div>
+      <div class="fact">
+        <span class="fact-icon" aria-hidden="true">&#x1F392;</span>
+        <strong>1.º al 5.º grado</strong>
+        <span>actividades para toda la primaria</span>
+      </div>
+      <div class="fact">
+        <span class="fact-icon" aria-hidden="true">&#x1F522;</span>
+        <strong>Tablas del 1 al 10</strong>
+        <span>con trucos y juegos para memorizar</span>
+      </div>
+    </div>
     <h2>Cómo enseñar a multiplicar a un niño paso a paso</h2>
     <p>Antes de memorizar cualquier tabla, el niño necesita entender qué significa multiplicar. Utilizar ejemplos cotidianos ayuda: “si tienes 3 platos y en cada uno hay 4 galletas, ¿cuántas galletas hay en total?”. Aquí la multiplicación deja de ser abstracta y se vuelve una herramienta lógica.</p>
     <p>Una secuencia efectiva para enseñar a los niños es:</p>
-    <ol>
-      <li>Repasar la suma y el conteo fluido hasta el 100.</li>
-      <li>Presentar la multiplicación como suma repetida (3 × 4 = 4 + 4 + 4).</li>
-      <li>Dibujar arrays o “filas y columnas” para apoyo visual.</li>
-      <li>Practicar una tabla a la vez con ejercicios prácticos cortos.</li>
-      <li>Jugar para recordar, no solo repetir de memoria.</li>
+    <ol class="step-list">
+      <li class="step-card step-inline"><span class="step-number" aria-hidden="true">1</span><span>Repasar la suma y el conteo fluido hasta el 100.</span></li>
+      <li class="step-card step-inline"><span class="step-number" aria-hidden="true">2</span><span>Presentar la multiplicación como suma repetida (3 × 4 = 4 + 4 + 4).</span></li>
+      <li class="step-card step-inline"><span class="step-number" aria-hidden="true">3</span><span>Dibujar arrays o “filas y columnas” para apoyo visual.</span></li>
+      <li class="step-card step-inline"><span class="step-number" aria-hidden="true">4</span><span>Practicar una tabla a la vez con ejercicios prácticos cortos.</span></li>
+      <li class="step-card step-inline"><span class="step-number" aria-hidden="true">5</span><span>Jugar para recordar, no solo repetir de memoria.</span></li>
     </ol>
     <p>La clave está en adaptar el ritmo. Un niño de segundo grado no avanza igual que uno de tercero de primaria. Personalizar la enseñanza reduce la dificultad y aumenta la motivación.</p>
 
@@ -362,9 +551,52 @@
     </ul>
     <p>No necesitas sesiones largas. Diez minutos diarios de un juego bien elegido valen más que una hora de presión. Así ayudas a tu hijo a aprender con confianza.</p>
 
-    <div class="article-cta">
-      <p><strong>¿Quieres actividades listas para imprimir?</strong><br>El <strong>Cuadernillo Matemáticas 4 Operaciones</strong> reúne más de 290 páginas de ejercicios de suma, resta, multiplicación y división, organizados del 1.º al 5.º grado.</p>
-      <a class="btn" href="/">Quiero el cuadernillo ahora</a>
+    <div class="article-cta offer-box">
+      <h2>Practica con problemas listos para imprimir</h2>
+      <img
+        class="offer-cover"
+        src="imagens-pg-vendas/Loja_LK_Post_-_Matematica_4_Operacoes-1-1024x1024.png_202609081654.png"
+        width="260"
+        height="260"
+        alt="Cuadernillo Matemáticas 4 Operaciones con problemas matemáticos para primaria"
+        loading="lazy"
+        decoding="async"
+      >
+      <p>Saber el método es el primer paso. Lo que realmente cambia el resultado es la <strong>práctica constante con problemas bien graduados</strong>. El <strong>Cuadernillo Matemáticas 4 Operaciones</strong> reúne más de 290 páginas de ejercicios y problemas de suma, resta, multiplicación y división, organizados del 1.º al 5.º grado.</p>
+      <p>Sin buscar fichas cada noche ni improvisar: imprimes y aplicas en casa o en el aula desde hoy.</p>
+      <p class="offer-price">Llévate el <strong>Cuadernillo Matemáticas 4 Operaciones</strong> por solo <strong class="price">$9,99</strong> (pago único).</p>
+
+      <div class="bump-note">
+        <p><strong>&#x1F381; Oportunidad exclusiva en el checkout:</strong> al hacer clic para comprar el cuadernillo, podrás sumar a tu pedido dos materiales complementarios. Su precio normal es de $9,99, pero en ese momento te llevas cada uno por solo <strong>$3,99</strong>. Están pensados para reforzar el cálculo y la resolución de problemas, y esta oferta solo aparece en el checkout.</p>
+        <div class="bump-grid">
+          <div class="bump-item">
+            <img
+              src="imagens-pg-vendas/capa-calculo-mental-caderno.png"
+              width="200"
+              height="200"
+              alt="Secretos del Cálculo Mental Rápido"
+              loading="lazy"
+              decoding="async"
+            >
+            <p>Secretos del Cálculo Mental Rápido<br><span class="bump-price"><del style="color:#8c7e72; font-size:0.85em; text-decoration:line-through;">$9,99</del> <strong style="color:#2caa33;">$3,99</strong></span></p>
+          </div>
+          <div class="bump-item">
+            <img
+              src="imagens-pg-vendas/capa-desafios-calculo.png"
+              width="200"
+              height="200"
+              alt="Desafíos de Cálculo y Problemas Matemáticos Kids"
+              loading="lazy"
+              decoding="async"
+            >
+            <p>Desafíos de Cálculo y Problemas Matemáticos Kids<br><span class="bump-price"><del style="color:#8c7e72; font-size:0.85em; text-decoration:line-through;">$9,99</del> <strong style="color:#2caa33;">$3,99</strong></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-wrap">
+        <a class="btn" href="/">Quiero el cuadernillo y los bonos</a>
+      </div>
     </div>
 
     <h2>Aprender las tablas de multiplicar rápido: trucos que sí funcionan</h2>
@@ -394,12 +626,15 @@
 
     <h2>Cuándo empezar y cómo superar las dificultades comunes</h2>
     <p>En general, los niños de primaria se acercan a la multiplicación entre segundo y tercero. Si tu hijo tiene 7, 8 o 9 años y aún se confunde, no significa fracaso: significa que necesita otro camino. Algunos tips:</p>
-    <ul>
-      <li>Evita comparar con hermanos o compañeros.</li>
-      <li>Celebrar avances pequeños (una tabla que recuerde bien).</li>
-      <li>Alternar papel, juego y apoyo visual.</li>
-      <li>Si hay TDAH u otra dificultad de atención, sesiones más cortas y más movimiento.</li>
-    </ul>
+    <div class="tip-box">
+      <p class="tip-title">&#x1F4A1; Consejos prácticos para superar las dificultades:</p>
+      <ul>
+        <li>Evita comparar con hermanos o compañeros.</li>
+        <li>Celebrar avances pequeños (una tabla que recuerde bien).</li>
+        <li>Alternar papel, juego y apoyo visual.</li>
+        <li>Si hay TDAH u otra dificultad de atención, sesiones más cortas y más movimiento.</li>
+      </ul>
+    </div>
     <p>Enseñar a multiplicar a un niño es también enseñar confianza. Las matemáticas dejan de asustar cuando el aprendizaje se siente seguro, lúdico y posible.</p>
 
     <h2>Preguntas frecuentes</h2>
